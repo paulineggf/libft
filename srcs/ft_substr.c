@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 15:24:50 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/07 15:24:51 by pganglof         ###   ########.fr       */
+/*   Created: 2019/10/07 15:28:42 by pganglof          #+#    #+#             */
+/*   Updated: 2019/10/08 16:26:34 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_strclr(char *s)
-{
-	int		i;
+#include <stdlib.h>
 
-	i = 0;
-	while (s[i++])
-		s[i] = '\0';
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*s2;
+	size_t	i;
+	size_t	j;
+
+	if (!(s2 = (char*)malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	i = start;
+	j = 0;
+	while (i < len + start)
+	{
+		s2[j++] = s[i];
+		i++;
+	}
+	s2[j] = '\0';
+	return (s2);
 }

@@ -6,14 +6,14 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:28:13 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/07 15:28:27 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/08 17:09:38 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-char	**ft_strsplit_2(char **str, char const *s, char c)
+char	**ft_split_2(char **str, char const *s, char c)
 {
 	int		i;
 	int		j;
@@ -26,6 +26,8 @@ char	**ft_strsplit_2(char **str, char const *s, char c)
 			i++;
 		if (s[i])
 			str[j] = ft_strndup(s + i, ft_strnlen(s + i, c));
+		else
+			break ;
 		while (s[i] && s[i] != c)
 			i++;
 		j++;
@@ -34,7 +36,7 @@ char	**ft_strsplit_2(char **str, char const *s, char c)
 	return (str);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	int		i;
 	int		count;
