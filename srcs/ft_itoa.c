@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/07 15:17:53 by pganglof          #+#    #+#             */
+/*   Updated: 2019/10/07 15:18:03 by pganglof         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
 static char	*ft_itoa_bis(int count, int sign, int div, long nb)
 {
 	char	*s;
-	long 	res;
+	long	res;
 	int		i;
 
 	res = 0;

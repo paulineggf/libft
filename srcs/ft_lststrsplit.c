@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lststrsplit.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/07 16:03:25 by pganglof          #+#    #+#             */
+/*   Updated: 2019/10/07 16:16:04 by pganglof         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include "libft.h"
 
@@ -19,7 +31,7 @@ t_list	*ft_lststrsplit(char const *s, char c)
 			len_s--;
 		if (s[len_s + 1] != c)
 		{
-			lst_new = ft_lstnew((void const*)ft_strndup(s + len_s + 1, 
+			lst_new = ft_lstnew((void const*)ft_strndup(s + len_s + 1), 
 			ft_strnlen(s + len_s + 1, c)), ft_strnlen(s + len_s + 1, c));
 			ft_lstadd(&lst_last, lst_new);
 			lst_last = lst_new;

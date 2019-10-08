@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/07 15:28:36 by pganglof          #+#    #+#             */
+/*   Updated: 2019/10/07 18:39:56 by pganglof         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string.h>
 
 char	*ft_strstr(const char *h, const char *n)
@@ -6,7 +18,7 @@ char	*ft_strstr(const char *h, const char *n)
 	int		j;
 
 	i = 0;
-	if (!n)
+	if (n[i] == '\0')
 		return ((char*)h);
 	while (h[i])
 	{
@@ -14,10 +26,10 @@ char	*ft_strstr(const char *h, const char *n)
 		while (h[i + j] == n[j])
 		{
 			if (n[j + 1] == '\0')
-				return ((char*)h + i);
+				return ((char*)(h + i));
 			j++;
 		}
 		i++;
 	}
-	return (NULL);
+	return (0);
 }
