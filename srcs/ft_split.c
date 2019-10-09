@@ -6,14 +6,14 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:28:13 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/08 17:09:38 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/09 15:44:45 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-char	**ft_split_2(char **str, char const *s, char c)
+static char	**ft_split_2(char **str, char const *s, char c)
 {
 	int		i;
 	int		j;
@@ -25,7 +25,10 @@ char	**ft_split_2(char **str, char const *s, char c)
 		while (s[i] && s[i] == c)
 			i++;
 		if (s[i])
-			str[j] = ft_strndup(s + i, ft_strnlen(s + i, c));
+		{
+			if (!(str[j] = ft_strndup(s + i, ft_strnlen(s + i, c))))
+				return (NULL);
+		}
 		else
 			break ;
 		while (s[i] && s[i] != c)
@@ -44,6 +47,8 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	count = 0;
+	if (!s)
+		return (NULL);
 	while (s[i])
 	{
 		while (s[i] && s[i] == c)
@@ -55,5 +60,5 @@ char	**ft_split(char const *s, char c)
 	}
 	if (!(str = malloc(sizeof(char*) * (count + 1))))
 		return (NULL);
-	return (ft_strsplit_2(str, s, c));
+	return (ft_split_2(str, s, c));
 }

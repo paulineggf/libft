@@ -1,40 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/12 21:19:49 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/09 15:09:18 by pganglof         ###   ########.fr       */
+/*   Created: 2019/10/09 17:15:00 by pganglof          #+#    #+#             */
+/*   Updated: 2019/10/09 17:24:30 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
-size_t	ft_strlcat(char *dest, char *src, size_t size)
+t_list	*ft_lstlast(t_list *lst)
 {
-	size_t	i;
-	size_t	j;
-	size_t	ret;
-
-	i = 0;
-	j = 0;
-	ret = 0;
-	while (dest[i])
-		i++;
-	while (src[ret])
-		ret++;
-	if (size <= i)
-		ret = ret + size;
-	else
-		ret = ret + i;
-	while (src[j] && i + 1 < size)
+	if (lst)
 	{
-		dest[i] = src[j];
-		i++;
-		j++;
+		while (lst->next)
+			lst = lst->next;
+		return (lst);
 	}
-	dest[i] = '\0';
-	return (ret);
+	return (NULL);
 }

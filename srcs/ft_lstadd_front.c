@@ -1,40 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/12 21:19:49 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/09 15:09:18 by pganglof         ###   ########.fr       */
+/*   Created: 2019/10/07 15:18:19 by pganglof          #+#    #+#             */
+/*   Updated: 2019/10/09 17:48:37 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
-size_t	ft_strlcat(char *dest, char *src, size_t size)
+void	ft_lstadd_front(t_list **alst, t_list *new)
 {
-	size_t	i;
-	size_t	j;
-	size_t	ret;
-
-	i = 0;
-	j = 0;
-	ret = 0;
-	while (dest[i])
-		i++;
-	while (src[ret])
-		ret++;
-	if (size <= i)
-		ret = ret + size;
-	else
-		ret = ret + i;
-	while (src[j] && i + 1 < size)
+	if (alst && *alst && new)
 	{
-		dest[i] = src[j];
-		i++;
-		j++;
+		new->next = *alst;
+		*alst = new;
 	}
-	dest[i] = '\0';
-	return (ret);
 }

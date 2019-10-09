@@ -9,6 +9,7 @@ CFLAGS = -Wall -Wextra -Werror -I$(INCLUDE) -c
 SRCS =	srcs/ft_strlen.c		\
 		srcs/ft_strnlen.c		\
 		srcs/ft_strlcat.c		\
+		srcs/ft_strlcpy.c		\
 	 	srcs/ft_putchar.c		\
 		srcs/ft_putchar_fd.c	\
 		srcs/ft_putstr.c		\
@@ -21,7 +22,8 @@ SRCS =	srcs/ft_strlen.c		\
 		srcs/ft_strdel.c		\
 		srcs/ft_lstdelone.c		\
 		srcs/ft_lstdel.c		\
-		srcs/ft_lstadd.c		\
+		srcs/ft_lstadd_front.c	\
+		srcs/ft_lstadd_back.c	\
 		srcs/ft_lstiter.c		\
 		srcs/ft_memset.c		\
 		srcs/ft_memmove.c		\
@@ -39,6 +41,7 @@ SRCS =	srcs/ft_strlen.c		\
 		srcs/ft_substr.c		\
 		srcs/ft_strjoin.c		\
 		srcs/ft_strtrim.c		\
+		srcs/ft_split.c			\
 		srcs/ft_strstr.c		\
 		srcs/ft_strnstr.c		\
 		srcs/ft_strcat.c		\
@@ -62,7 +65,9 @@ SRCS =	srcs/ft_strlen.c		\
 		srcs/ft_atoi.c			\
 		srcs/ft_memcmp.c		\
 		srcs/ft_strequ.c		\
+		srcs/ft_lstsize.c		\
 		srcs/ft_lstnew.c		\
+		srcs/ft_lstlast.c		\
 		srcs/ft_lstmap.c
 
 OBJ = $(SRCS:.c=.o)
