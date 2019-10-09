@@ -6,28 +6,31 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:28:48 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/07 15:28:49 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/09 14:15:28 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		i;
-	int		len_s;
+	int		len_s1;
 	char	*s2;
 
 	i = 0;
-	len_s = ft_strlen(s) - 1;
-	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
-		i++;
-	while (s[len_s] == ' ' || s[len_s] == '\n' || s[len_s] == '\t')
-		len_s--;
-	len_s = len_s - i + 1;
-	if (!(s2 = malloc(sizeof(char) * (len_s + 1))))
+	len_s1 = ft_strlen(s1) - 1;
+	if (!set)
+		return ((char*)s1);
+	if (!s1)
 		return (NULL);
-	s2 = ft_strncpy(s2, s + i, len_s);
+	while (ft_charset(s1[i], set) >= 0)
+		i++;
+	while (ft_charset(s1[len_s1], set) >= 0)
+		len_s1--;
+	if (!(s2 = ft_strndup((s1 + i), ft_strlen(s1) -
+		(ft_strlen(s1) - len_s1 - 1) - i)))
+		return (NULL);
 	return (s2);
 }

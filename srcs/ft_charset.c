@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_charset.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 15:21:59 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/09 11:46:32 by pganglof         ###   ########.fr       */
+/*   Created: 2019/10/09 13:42:05 by pganglof          #+#    #+#             */
+/*   Updated: 2019/10/09 13:45:34 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-void	*ft_memchr(const void *s, int c, size_t n)
+int		ft_charset(char c, char const *set)
 {
-	size_t	i;
+	int		i;
 
 	i = 0;
-	while (i < n && *((unsigned char*)(s + i)) != (unsigned char)c)
+	while (set[i])
+	{
+		if (set[i] == c)
+			return (i);
 		i++;
-	if (i == n)
-		return (NULL);
-	else
-		return ((unsigned char*)(s + i));
+	}
+	return (-1);
 }

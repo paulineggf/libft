@@ -59,6 +59,7 @@ SRCS =	srcs/ft_strlen.c		\
 		srcs/ft_toupper.c		\
 		srcs/ft_tolower.c		\
 		srcs/ft_isspace.c		\
+		srcs/ft_charset.c		\
 		srcs/ft_atoi.c			\
 		srcs/ft_memcmp.c		\
 		srcs/ft_strequ.c		\
