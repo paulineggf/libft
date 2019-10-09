@@ -40,7 +40,6 @@ SRCS =	srcs/ft_strlen.c		\
 		srcs/ft_substr.c		\
 		srcs/ft_strjoin.c		\
 		srcs/ft_strtrim.c		\
-		srcs/ft_split.c			\
 		srcs/ft_strstr.c		\
 		srcs/ft_strnstr.c		\
 		srcs/ft_strcat.c		\

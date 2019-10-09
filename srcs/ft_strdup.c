@@ -6,12 +6,12 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:25:13 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/07 17:51:19 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/08 20:56:52 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+#include "../includes/libft.h"
 
 char	*ft_strdup(const char *s)
 {
