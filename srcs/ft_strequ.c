@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:25:22 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/07 15:25:23 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/09 14:40:58 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@ int		ft_strequ(char const *s1, char const *s2)
 {
 	int		i;
 
+	if (!s1 || !s2)
+		return (0);
 	i = 0;
 	while (s1[i] && s1[i] == s2[i])
 		i++;

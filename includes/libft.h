@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:42:19 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/09 13:51:19 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/09 14:42:47 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_memrchr(const void *s, int c, size_t n);
 void	*ft_memalloc(size_t size);
-void	*ft_memdel(void **ap);
 char	*ft_strcpy(char *dest, const char *src);
 char	*ft_strncpy(char *dest, const char *src, size_t n);
 char	*ft_strstr(const char *h, const char *n);

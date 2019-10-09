@@ -30,7 +30,6 @@ SRCS =	srcs/ft_strlen.c		\
 		srcs/ft_memchr.c		\
 		srcs/ft_memrchr.c		\
 		srcs/ft_memalloc		\
-		srcs/ft_memdel.c		\
 		srcs/ft_strcpy.c		\
 		srcs/ft_strncpy.c		\
 		srcs/ft_strchr.c		\

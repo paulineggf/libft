@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:24:20 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/07 15:24:27 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/09 14:37:50 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putstr(char const *s)
 {
+	if (!s)
+		return ;
 	while (*s)
 		write(1, s++, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:25:07 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/07 15:25:08 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/09 14:39:32 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_strdel(char **as)
 {
+	if (!as)
+		return ;
 	free(*as);
 	*as = NULL;
 }
