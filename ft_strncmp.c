@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 15:19:34 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/09 17:53:55 by pganglof         ###   ########.fr       */
+/*   Created: 2019/10/07 15:27:24 by pganglof          #+#    #+#             */
+/*   Updated: 2019/10/10 18:08:49 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	del((void*)(*alst)->content, (*alst)->content_size);
-	free(*alst);
-	alst = NULL;
+	size_t				i;
+	const unsigned char	*str1;
+	const unsigned char *str2;
+
+	if ((!ft_strlen(s1) && !ft_strlen(s2)) || n == 0)
+		return (0);
+	str1 = (const unsigned char*)s1;
+	str2 = (const unsigned char*)s2;
+	i = 0;
+	while (str1[i] && i < (n - 1))
+	{
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
+		i++;
+	}
+	return (s1[i] - s2[i]);
 }

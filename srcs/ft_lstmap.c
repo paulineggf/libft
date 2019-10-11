@@ -6,28 +6,28 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:20:40 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/09 17:52:42 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/10 15:19:11 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include "../includes/libft.h"
 
-t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(void *))
 {
 	t_list	*begin_list;
 	t_list	*tmp;
-	t_list	*new;
 
-	if (!(begin_list = ft_lstnew((void*)(f(lst))->content, lst->content_size)))
+	if (!(begin_list = malloc(sizeof(t_list) * ft_lstsize(lst))))
 		return (NULL);
-	lst = lst->next;
-	tmp = begin_list;
+	printf("lstsize : %d\n", ft_lstsize(lst));
+	begin_list = lst;
 	while (lst)
 	{
-		if (!(new = ft_lstnew((void*)(f(lst))->content, lst->content_size)))
-			return (NULL);
-		tmp->next = new;
-		tmp = tmp->next;
+		lst = f(lst->content);
+		tmp = lst;
+		printf("lst : %s\n", (char*)lst->content);
 		lst = lst->next;
 	}
 	return (begin_list);

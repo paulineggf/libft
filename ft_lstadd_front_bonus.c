@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 14:38:16 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/08 13:32:47 by pganglof         ###   ########.fr       */
+/*   Created: 2019/10/07 15:18:19 by pganglof          #+#    #+#             */
+/*   Updated: 2019/10/10 19:00:29 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-int		ft_atoi(const char *s)
+void	ft_lstadd_front(t_list **alst, t_list *new)
 {
-	int		i;
-	int		sign;
-	int		res;
-
-	i = 0;
-	sign = 1;
-	res = 0;
-	while (ft_isspace(s[i]))
-		i++;
-	if (s[i] == '-')
+	if (new == NULL)
+		return ;
+	if (*alst == NULL)
 	{
-		sign *= -1;
-		i++;
+		*alst = new;
+		return ;
 	}
-	while (ft_isdigit(s[i]))
+	if (alst && *alst && new)
 	{
-		res = res * 10 + (s[i] - 48);
-		i++;
+		new->next = *alst;
+		*alst = new;
 	}
-	return (res * sign);
 }

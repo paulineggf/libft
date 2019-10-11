@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 15:25:13 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/08 20:56:52 by pganglof         ###   ########.fr       */
+/*   Created: 2019/10/07 15:28:48 by pganglof          #+#    #+#             */
+/*   Updated: 2019/10/10 18:38:51 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "../includes/libft.h"
+#include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*s2;
 	int		i;
+	int		len_s1;
+	char	*s2;
 
 	i = 0;
-	if (!(s2 = (char*)malloc(sizeof(char) * (ft_strlen(s) + 1))))
+	len_s1 = ft_strlen(s1) - 1;
+	if (!set)
+		return ((char*)s1);
+	if (!s1)
 		return (NULL);
-	while (s[i])
-	{
-		s2[i] = s[i];
+	while (s1[i] && ft_charset(s1[i], set) >= 0)
 		i++;
+	if (!s1[i])
+	{
+		if (!(s2 = ft_strndup("", 0)))
+			return (NULL);
+		return (s2);
 	}
-	s2[i] = '\0';
+	while (ft_charset(s1[len_s1], set) >= 0)
+		len_s1--;
+	if (!(s2 = ft_strndup((s1 + i), ft_strlen(s1) -
+		(ft_strlen(s1) - len_s1 - 1) - i)))
+		return (NULL);
 	return (s2);
 }

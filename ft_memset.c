@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 15:20:48 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/09 16:50:35 by pganglof         ###   ########.fr       */
+/*   Created: 2019/10/07 15:23:19 by pganglof          #+#    #+#             */
+/*   Updated: 2019/10/10 16:15:06 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "../includes/libft.h"
+#include <string.h>
 
-t_list	*ft_lstnew(void *content)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	t_list	*new;
+	size_t	i;
 
-	if (!(new = malloc(sizeof(t_list))))
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+	i = 0;
+	while (i < n)
+	{
+		*((unsigned char*)(s + i)) = c;
+		i++;
+	}
+	return (s);
 }
