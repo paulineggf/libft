@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:28:13 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/11 11:53:06 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/11 16:42:53 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,17 @@ static char	**ft_split_2(char **str, char const *s, char c)
 	return (str);
 }
 
+static char	**ft_strfree(char **str)
+{
+	while (*str)
+	{
+		free(*str);
+		(*str)++;
+	}
+	free(str);
+	return (NULL);
+}
+
 char		**ft_split(char const *s, char c)
 {
 	int		i;
@@ -60,5 +71,7 @@ char		**ft_split(char const *s, char c)
 	}
 	if (!(str = malloc(sizeof(char*) * (count + 1))))
 		return (NULL);
-	return (ft_split_2(str, s, c));
+	if (ft_split_2(str, s, c) == NULL)
+		return (ft_strfree(str));
+	return (str);
 }

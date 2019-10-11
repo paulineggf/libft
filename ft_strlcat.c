@@ -6,13 +6,13 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/12 21:19:49 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/09 15:09:18 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/11 16:47:26 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, char *src, size_t size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t	i;
 	size_t	j;

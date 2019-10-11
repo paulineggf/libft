@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:21:59 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/09 11:46:32 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/11 16:27:52 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,5 @@ void	*ft_memchr(const void *s, int c, size_t n)
 		i++;
 	if (i == n)
 		return (NULL);
-	else
-		return ((unsigned char*)(s + i));
+	return ((unsigned char*)(s + i));
 }

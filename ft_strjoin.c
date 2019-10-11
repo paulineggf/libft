@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:25:43 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/09 12:14:55 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/11 16:46:19 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		s3 = ft_strcat(s3, s2);
 	}
 	else if (s1 && !s2)
-	{
-		if (!(s3 = ft_strdup(s1)))
-			return (NULL);
-	}
+		return (ft_strdup(s1));
 	else
-	{
-		if (!(s3 = ft_strdup(s2)))
-			return (NULL);
-	}
+		return (ft_strdup(s2));
 	return (s3);
 }

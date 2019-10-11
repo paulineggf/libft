@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:23:00 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/10 16:50:53 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/11 16:34:13 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 			n--;
 			*(unsigned char*)(dest + n) = *(unsigned char*)(src + n);
 		}
-		*(unsigned char*)(dest + n) = *(unsigned char*)(src + n);
 	}
 	return (dest);
 }

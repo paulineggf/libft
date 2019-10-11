@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 17:15:00 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/10 16:25:54 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/11 16:21:17 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,7 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	if (lst)
-	{
-		while (lst->next)
-			lst = lst->next;
-		return (lst);
-	}
-	return (NULL);
+	while (lst && lst->next)
+		lst = lst->next;
+	return (lst);
 }
