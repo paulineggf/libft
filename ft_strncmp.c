@@ -6,22 +6,32 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:27:24 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/11 16:50:52 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/14 19:26:21 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+static size_t	ft_strlen(const char *s)
 {
-	size_t				i;
-	const unsigned char	*str1;
-	const unsigned char *str2;
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+int				ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t			i;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
 	if ((!ft_strlen(s1) && !ft_strlen(s2)) || n == 0)
 		return (0);
-	str1 = (const unsigned char*)s1;
-	str2 = (const unsigned char*)s2;
+	str1 = (unsigned char*)s1;
+	str2 = (unsigned char*)s2;
 	i = 0;
 	while (str1[i] && i < (n - 1))
 	{
@@ -29,5 +39,5 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 			return (str1[i] - str2[i]);
 		i++;
 	}
-	return (s1[i] - s2[i]);
+	return (str1[i] - str2[i]);
 }

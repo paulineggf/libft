@@ -6,14 +6,18 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:24:06 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/11 16:39:17 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/14 19:25:14 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "libft.h"
 
-void	ft_putnbr(int n)
+static void		ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void			ft_putnbr(int n)
 {
 	long	nb;
 	int		div;

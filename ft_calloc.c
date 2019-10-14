@@ -6,21 +6,32 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 14:53:52 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/10 18:43:07 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/14 17:26:38 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+static void	ft_bzero(void *s, size_t n)
 {
-	void	*var;
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+	{
+		*(unsigned char*)(s + i) = 0;
+		i++;
+	}
+}
+
+void		*ft_calloc(size_t count, size_t size)
+{
+	char	*var;
 
 	if (count == 0 || size == 0)
 		return (NULL);
-	if (!(var = (void*)malloc(count * size)))
+	if (!(var = (char*)malloc(sizeof(char) * count * size)))
 		return (NULL);
-	ft_bzero(var, count * size);
-	return (var);
+	ft_bzero((void*)var, count * size);
+	return ((void*)var);
 }

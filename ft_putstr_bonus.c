@@ -6,14 +6,24 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:24:20 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/11 16:39:55 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/14 19:14:59 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "libft.h"
+#include <string.h>
 
-void	ft_putstr(char const *s)
+static size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+void			ft_putstr(char const *s)
 {
 	if (!s)
 		return ;

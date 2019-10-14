@@ -6,14 +6,24 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:27:11 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/11 16:50:27 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/14 19:26:13 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+#include <string.h>
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+static size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+char			*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*s2;
 	int		i;

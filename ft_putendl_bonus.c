@@ -6,14 +6,28 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:23:50 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/11 16:38:40 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/14 19:13:49 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <unistd.h>
 
-void	ft_putendl(char const *s)
+static void		ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+static size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+void			ft_putendl(char const *s)
 {
 	if (!s)
 		return ;

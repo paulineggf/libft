@@ -6,12 +6,11 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:23:58 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/09 14:30:09 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/14 17:14:50 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {
