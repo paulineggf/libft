@@ -33,7 +33,7 @@ SRCS_NAME =	ft_strlen.c				\
 			ft_toupper.c			\
 			ft_tolower.c			\
 			ft_atoi.c				\
-			ft_memcmp.c
+			ft_memcmp.c				\
 
 
 SRCS_NAM2 =	ft_strequ_bonus.c		\
@@ -72,25 +72,24 @@ HEADERS = ./
 OBJS = $(SRCS:.c=.o)
 OBJS2 = $(SRCS2:.c=.o)
 NAME = libft.a
-NAME2 = libft_bonus.a
 RM = rm -f
 AR = ar
 AFLAGS = -sucr
 CFLAGS += -Wall -Wextra -Werror -I $(HEADERS)
 
-all: $(NAME) $(NAME2)
+all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(AR) $(AFLAGS) $(NAME) $(OBJS)
 
-$(NAME2): $(OBJS2)
-	$(AR) $(AFLAGS) $(NAME2) $(OBJS2)
+bonus: $(SRCS_NAME) $(OBJS) $(OBJS2)
+	$(AR) $(AFLAGS) $(NAME) $(OBJS) $(OBJS2)
 
 clean:
-	$(RM) $(OBJS)
-	$(RM) $(OBJS2)
+	$(RM) $(OBJS) $(OBJS2)
+
 fclean: clean
 	$(RM) $(NAME)
-	$(RM) $(NAME2)
+	
 re: fclean all
 .PHONY: all clean fclean re

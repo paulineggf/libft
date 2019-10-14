@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:42:19 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/13 20:00:51 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/14 11:38:01 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,6 @@ int				ft_strequ(char const *s1, char const *s2);
 int				ft_lstsize(t_list *lst);
 t_list			*ft_lstnew(void *content);
 t_list			*ft_lstlast(t_list *lst);
-t_list			*ft_lstmap(t_list *lst, t_list *(*f)(void *));
+t_list			*ft_lstmap(t_list *lst, void *(*f)(void *));
 
 #endif

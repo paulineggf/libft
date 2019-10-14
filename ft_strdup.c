@@ -6,14 +6,24 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:25:13 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/10 16:52:18 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/14 12:05:34 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+#include <string.h>
 
-char	*ft_strdup(const char *s)
+static size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+char			*ft_strdup(const char *s)
 {
 	char	*s2;
 	int		i;

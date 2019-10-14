@@ -6,14 +6,41 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:28:13 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/11 16:42:53 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/14 10:12:27 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+#include <string.h>
 
-static char	**ft_split_2(char **str, char const *s, char c)
+static char		*ft_strndup(const char *s, size_t n)
+{
+	char	*s2;
+	size_t	i;
+
+	i = 0;
+	if (!(s2 = (char*)malloc(sizeof(char) * (n + 1))))
+		return (NULL);
+	while (s[i] && i < n)
+	{
+		s2[i] = s[i];
+		i++;
+	}
+	s2[i] = '\0';
+	return (s2);
+}
+
+static size_t	ft_strnlen(const char *s, char c)
+{
+	int		i;
+
+	i = 0;
+	while (s[i] && s[i] != c)
+		i++;
+	return (i);
+}
+
+static char		**ft_split_2(char **str, char const *s, char c)
 {
 	int		i;
 	int		j;
@@ -39,7 +66,7 @@ static char	**ft_split_2(char **str, char const *s, char c)
 	return (str);
 }
 
-static char	**ft_strfree(char **str)
+static char		**ft_strfree(char **str)
 {
 	while (*str)
 	{
@@ -50,7 +77,7 @@ static char	**ft_strfree(char **str)
 	return (NULL);
 }
 
-char		**ft_split(char const *s, char c)
+char			**ft_split(char const *s, char c)
 {
 	int		i;
 	int		count;

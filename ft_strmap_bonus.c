@@ -6,14 +6,23 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:27:05 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/11 16:50:16 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/14 12:01:48 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
 
-char	*ft_strmap(char const *s, char (*f)(char))
+static size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+char			*ft_strmap(char const *s, char (*f)(char))
 {
 	char	*s2;
 	int		i;

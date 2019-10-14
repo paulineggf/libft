@@ -6,34 +6,53 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:20:40 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/11 12:20:01 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/14 12:28:11 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, t_list *(*f)(void *))
+static void	*ft_lstclear_map(t_list **lst, void (*del)(void*))
 {
-	t_list	*tmp;
-	t_list	*tmp1;
-	t_list	*begin_list;
+	t_list *tmp;
 
-	if (lst)
+	if (!lst || !del)
+		return (NULL);
+	while (*lst)
 	{
-		tmp = f(lst);
-		begin_list = tmp;
-		tmp1 = tmp;
-		lst = lst->next;
-		while (lst)
-		{
-			tmp = f(lst);
-			tmp1->next = tmp;
-			tmp1 = tmp1->next;
-			lst = lst->next;
-		}
-		return (begin_list);
+		del((*lst)->content);
+		tmp = (*lst)->next;
+		free(*lst);
+		*lst = tmp;
 	}
 	return (NULL);
+}
+
+t_list		*ft_lstmap(t_list *lst, void *(*f)(void *))
+{
+	t_list *new;
+	t_list *act;
+	t_list *begin_list;
+
+	begin_list = NULL;
+	while (lst)
+	{
+		if (!(new = malloc(sizeof(t_list))))
+			return (ft_lstclear_map(&begin_list, &free));
+		new->content = f(lst->content);
+		new->next = NULL;
+		if (!begin_list)
+		{
+			begin_list = new;
+			act = new;
+		}
+		else
+		{
+			act->next = new;
+			act = new;
+		}
+		lst = lst->next;
+	}
+	return (begin_list);
 }

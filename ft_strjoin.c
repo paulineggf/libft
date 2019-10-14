@@ -6,14 +6,71 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 19:52:42 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/13 19:52:44 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/14 10:15:44 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+#include <string.h>
 
-char	*ft_strjoin(char const *s1, char const *s2)
+static size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+static char		*ft_strdup(const char *s)
+{
+	char	*s2;
+	int		i;
+
+	i = 0;
+	if (!(s2 = (char*)malloc(sizeof(char) * (ft_strlen(s) + 1))))
+		return (NULL);
+	while (s[i])
+	{
+		s2[i] = s[i];
+		i++;
+	}
+	s2[i] = '\0';
+	return (s2);
+}
+
+static char		*ft_strcat(char *dest, const char *src)
+{
+	int		i;
+	int		len_dest;
+
+	i = 0;
+	len_dest = (int)ft_strlen((const char*)dest);
+	while (src[i])
+	{
+		dest[len_dest + i] = src[i];
+		i++;
+	}
+	dest[len_dest + i] = src[i];
+	return (dest);
+}
+
+static char		*ft_strcpy(char *dest, const char *src)
+{
+	int		i;
+
+	i = 0;
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+
+char			*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*s3;
 
