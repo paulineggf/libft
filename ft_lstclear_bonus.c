@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 14:16:10 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/14 19:23:25 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/15 19:39:39 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list *tmp;
 
-	if (!lst || !del)
+	if (!lst || !*lst|| !del)
 		return ;
 	while (*lst)
 	{
-		del((*lst)->content);
 		tmp = (*lst)->next;
+		del((*lst)->content);
 		free(*lst);
 		*lst = tmp;
 	}
