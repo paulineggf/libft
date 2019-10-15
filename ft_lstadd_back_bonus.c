@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 17:18:18 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/15 19:48:27 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/15 19:56:47 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	if (!alst || !new)
+	if (!alst)
 		return ;
 	if (!*alst)
 		*alst = new;
