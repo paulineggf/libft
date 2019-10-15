@@ -33,7 +33,7 @@ SRCS_NAME =	ft_strlen.c				\
 			ft_toupper.c			\
 			ft_tolower.c			\
 			ft_atoi.c				\
-			ft_memcmp.c				\
+			ft_memcmp.c
 
 
 SRCS_NAM2 =	ft_strequ_bonus.c		\
