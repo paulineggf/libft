@@ -6,21 +6,11 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:28:06 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/14 19:26:35 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/24 11:37:45 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-static size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 char			*ft_strrchr(const char *s, int c)
 {

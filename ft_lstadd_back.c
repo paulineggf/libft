@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isupper_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 15:17:44 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/14 19:23:04 by pganglof         ###   ########.fr       */
+/*   Created: 2019/10/09 17:18:18 by pganglof          #+#    #+#             */
+/*   Updated: 2019/10/24 11:14:38 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isupper(int c)
+#include "libft.h"
+
+void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	return (0);
+	if (!alst)
+		return ;
+	if (!*alst)
+		*alst = new;
+	else
+		ft_lstlast(*alst)->next = new;
 }

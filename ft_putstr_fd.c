@@ -6,22 +6,12 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:24:14 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/14 17:13:50 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/24 11:17:24 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <string.h>
-
-static size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 void			ft_putstr_fd(char const *s, int fd)
 {

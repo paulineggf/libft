@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 15:24:06 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/14 19:25:14 by pganglof         ###   ########.fr       */
+/*   Created: 2019/10/07 15:20:40 by pganglof          #+#    #+#             */
+/*   Updated: 2019/10/24 11:15:20 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
+#include "libft.h"
 
-static void		ft_putchar(char c)
+t_list		*ft_lstmap(t_list *lst, void *(*f)(void *))
 {
-	write(1, &c, 1);
-}
+	t_list *new;
+	t_list *begin_list;
 
-void			ft_putnbr(int n)
-{
-	long	nb;
-	int		div;
-
-	nb = n;
-	div = 1;
-	if (nb < 0)
+	if (!lst || !f)
+		return (NULL);
+	begin_list = NULL;
+	while (lst)
 	{
-		write(1, "-", 1);
-		nb *= -1;
+		if (!begin_list)
+		{
+			if (!(new = ft_lstnew((*f)(lst->content))))
+				return (NULL);
+			begin_list = new;
+		}
+		else
+			new->next = ft_lstnew((*f)(lst->content));
+		lst = lst->next;
 	}
-	while (nb / div >= 10)
-		div = div * 10;
-	while (div > 0)
-	{
-		ft_putchar(((nb / div) % 10) + 48);
-		div = div / 10;
-	}
+	return (begin_list);
 }

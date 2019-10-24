@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 15:20:48 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/14 19:24:09 by pganglof         ###   ########.fr       */
+/*   Created: 2019/10/07 15:24:06 by pganglof          #+#    #+#             */
+/*   Updated: 2019/10/24 11:16:41 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <unistd.h>
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+void			ft_putnbr(int n)
 {
-	t_list	*new;
+	long	nb;
+	int		div;
 
-	if (!(new = malloc(sizeof(t_list))))
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+	nb = n;
+	div = 1;
+	if (nb < 0)
+	{
+		write(1, "-", 1);
+		nb *= -1;
+	}
+	while (nb / div >= 10)
+		div = div * 10;
+	while (div > 0)
+	{
+		ft_putchar(((nb / div) % 10) + 48);
+		div = div / 10;
+	}
 }

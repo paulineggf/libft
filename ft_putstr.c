@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 15:23:35 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/14 19:24:25 by pganglof         ###   ########.fr       */
+/*   Created: 2019/10/07 15:24:20 by pganglof          #+#    #+#             */
+/*   Updated: 2019/10/24 11:32:59 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include "libft.h"
 
-void	ft_putchar(char c)
+void			ft_putstr(char const *s)
 {
-	write(1, &c, 1);
+	if (!s)
+		return ;
+	write(1, s, ft_strlen(s));
 }

@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 15:24:20 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/14 19:14:59 by pganglof         ###   ########.fr       */
+/*   Created: 2019/10/10 14:16:10 by pganglof          #+#    #+#             */
+/*   Updated: 2019/10/24 11:14:53 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <string.h>
+#include <stdlib.h>
+#include "libft.h"
 
-static size_t	ft_strlen(const char *s)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	size_t	i;
+	t_list *tmp;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-void			ft_putstr(char const *s)
-{
-	if (!s)
+	if (!lst || !*lst || !del)
 		return ;
-	write(1, s, ft_strlen(s));
+	while (*lst)
+	{
+		tmp = (*lst)->next;
+		del((*lst)->content);
+		free(*lst);
+		*lst = tmp;
+	}
 }

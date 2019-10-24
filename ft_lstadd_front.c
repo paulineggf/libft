@@ -1,35 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 15:28:36 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/14 19:26:37 by pganglof         ###   ########.fr       */
+/*   Created: 2019/10/07 15:18:19 by pganglof          #+#    #+#             */
+/*   Updated: 2019/10/24 11:14:45 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-char	*ft_strstr(const char *h, const char *n)
+void	ft_lstadd_front(t_list **alst, t_list *new)
 {
-	int		i;
-	int		j;
-
-	i = 0;
-	if (n[i] == '\0')
-		return ((char*)h);
-	while (h[i])
-	{
-		j = 0;
-		while (h[i + j] == n[j])
-		{
-			if (n[j + 1] == '\0')
-				return ((char*)(h + i));
-			j++;
-		}
-		i++;
-	}
-	return (0);
+	if (!new || !alst)
+		return ;
+	new->next = *alst;
+	*alst = new;
 }

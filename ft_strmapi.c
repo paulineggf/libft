@@ -6,22 +6,12 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:27:11 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/14 19:26:13 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/24 11:37:05 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <string.h>
-
-static size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

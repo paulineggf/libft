@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_charset_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 13:42:05 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/14 19:21:43 by pganglof         ###   ########.fr       */
+/*   Created: 2019/10/07 15:23:50 by pganglof          #+#    #+#             */
+/*   Updated: 2019/10/24 11:34:02 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_charset(char c, char const *set)
-{
-	int		i;
+#include <unistd.h>
+#include "libft.h"
 
-	i = 0;
-	while (set[i])
-	{
-		if (set[i] == c)
-			return (i);
-		i++;
-	}
-	return (-1);
+void			ft_putendl(char const *s)
+{
+	if (!s)
+		return ;
+	write(1, s, ft_strlen(s));
+	ft_putchar('\n');
 }

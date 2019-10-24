@@ -6,21 +6,12 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/12 21:19:49 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/14 19:25:57 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/24 11:36:21 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-
-static size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 size_t			ft_strlcat(char *dest, const char *src, size_t size)
 {

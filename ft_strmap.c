@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 17:18:18 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/15 19:56:47 by pganglof         ###   ########.fr       */
+/*   Created: 2019/10/07 15:27:05 by pganglof          #+#    #+#             */
+/*   Updated: 2019/10/24 11:36:55 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **alst, t_list *new)
+char			*ft_strmap(char const *s, char (*f)(char))
 {
-	if (!alst)
-		return ;
-	if (!*alst)
-		*alst = new;
-	else
-		ft_lstlast(*alst)->next = new;
+	char	*s2;
+	int		i;
+
+	i = 0;
+	if (!s || !f)
+		return (NULL);
+	if (!(s2 = (char*)malloc(sizeof(char) * (ft_strlen(s) + 1))))
+		return (NULL);
+	while (s[i] != '\0')
+	{
+		s2[i] = f(s[i]);
+		i++;
+	}
+	s2[i] = '\0';
+	return (s2);
 }

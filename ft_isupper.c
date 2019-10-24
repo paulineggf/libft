@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_isupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 15:20:31 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/15 19:40:45 by pganglof         ###   ########.fr       */
+/*   Created: 2019/10/07 15:17:44 by pganglof          #+#    #+#             */
+/*   Updated: 2019/10/24 11:14:36 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+int		ft_isupper(int c)
 {
-	if (!f || !lst)
-		return ;
-	while (lst)
-	{
-		(*f)(lst->content);
-		lst = lst->next;
-	}
+	if (c >= 'A' && c <= 'Z')
+		return (1);
+	return (0);
 }

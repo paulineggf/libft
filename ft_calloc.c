@@ -6,23 +6,12 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 14:53:52 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/15 19:18:00 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/24 11:39:27 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-
-static void	ft_bzero(void *s, size_t n)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < n)
-	{
-		*(unsigned char*)(s + i) = 0;
-		i++;
-	}
-}
+#include "libft.h"
 
 void		*ft_calloc(size_t count, size_t size)
 {

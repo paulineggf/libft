@@ -6,24 +6,11 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:38:16 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/14 19:22:32 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/10/24 11:39:10 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
-
-static int	ft_isspace(char c)
-{
-	if (c == ' ' || c == '\n' || c == '\t'
-		|| c == '\v' || c == '\f' || c == '\r')
-		return (1);
-	return (0);
-}
+#include "libft.h"
 
 int			ft_atoi(const char *s)
 {
@@ -36,6 +23,8 @@ int			ft_atoi(const char *s)
 	res = 0;
 	while (s[i] && ft_isspace(s[i]))
 		i++;
+	if (s[i] == '*')
+		return (-1);
 	if (s[i] == '+' || s[i] == '-')
 	{
 		if (s[i] == '-')
