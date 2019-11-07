@@ -6,13 +6,15 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:42:19 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/24 11:23:42 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/11/02 20:43:32 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <string.h>
+
+# define BUFFER_SIZE 32
 
 typedef struct	s_list
 {
@@ -54,14 +56,17 @@ char			*ft_strnstr(const char *h, const char *n, size_t len);
 char			*ft_strcat(char *dest, const char *src);
 char			*ft_strncat(char *dest, const char *src, size_t n);
 char			*ft_itoa(int n);
+char			*ft_uitoa(unsigned int n);
 char			*ft_strdup(const char *s);
 char			*ft_strndup(const char *s, size_t n);
 char			*ft_strchr(const char *s, int c);
+char			*ft_strupcase(char *str);
 char			*ft_strrchr(const char *s, int c);
 char			*ft_strmap(char const *s, char (*f)(char));
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
+char			*ft_strnjoin(char *s1, char *s2, int n);
 char			*ft_strtrim(char const *s1, char const *set);
 char			**ft_split(char const *s, char c);
 int				ft_strcmp(const char *s1, const char *s2);
@@ -81,6 +86,7 @@ int				ft_atoi(const char *s);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 int				ft_strequ(char const *s1, char const *s2);
 int				ft_lstsize(t_list *lst);
+int				get_next_line(int fd, char **line);
 t_list			*ft_lstnew(void *content);
 t_list			*ft_lstlast(t_list *lst);
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *));

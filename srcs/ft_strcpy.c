@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 14:53:52 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/24 11:39:27 by pganglof         ###   ########.fr       */
+/*   Created: 2019/10/07 15:25:01 by pganglof          #+#    #+#             */
+/*   Updated: 2019/11/03 18:33:31 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
-
-void		*ft_calloc(size_t count, size_t size)
+char	*ft_strcpy(char *dest, const char *src)
 {
-	char	*var;
+	int		i;
 
-	if (count == 0 || size == 0)
+	i = 0;
+	while (src[i])
 	{
-		count = 1;
-		size = 1;
+		dest[i] = src[i];
+		i++;
 	}
-	if (!(var = malloc(sizeof(char) * (count * size))))
-		return (NULL);
-	ft_bzero((void*)var, count * size);
-	return ((void*)var);
+	dest[i] = '\0';
+	return (dest);
 }

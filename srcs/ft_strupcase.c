@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pganglof <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 15:23:19 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/10 16:15:06 by pganglof         ###   ########.fr       */
+/*   Created: 2019/06/08 15:02:55 by pganglof          #+#    #+#             */
+/*   Updated: 2019/06/09 18:55:42 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-void	*ft_memset(void *s, int c, size_t n)
+char	*ft_strupcase(char *str)
 {
-	size_t	i;
+	int		i;
 
 	i = 0;
-	while (i < n)
+	while (str[i] != '\0')
 	{
-		*((unsigned char*)(s + i)) = c;
+		if (str[i] >= 'a' && str[i] <= 'z')
+			str[i] = str[i] - 32;
 		i++;
 	}
-	return (s);
+	return (str);
 }

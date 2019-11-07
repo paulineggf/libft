@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 15:23:00 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/14 19:12:15 by pganglof         ###   ########.fr       */
+/*   Created: 2019/10/07 15:23:19 by pganglof          #+#    #+#             */
+/*   Updated: 2019/10/30 16:26:00 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
 	size_t	i;
 
 	i = 0;
-	if (dest < src)
+	while (i < n)
 	{
-		while (i < n)
-		{
-			*(unsigned char*)(dest + i) = *(unsigned char*)(src + i);
-			i++;
-		}
+		*((unsigned char*)(s + i)) = c;
+		i++;
 	}
-	else if (dest > src && n > 0)
-	{
-		while (n > 0)
-		{
-			n--;
-			*(unsigned char*)(dest + n) = *(unsigned char*)(src + n);
-		}
-	}
-	return (dest);
+	return (s);
 }

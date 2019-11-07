@@ -1,31 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strndup_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_uitoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 15:27:36 by pganglof          #+#    #+#             */
-/*   Updated: 2019/10/11 16:54:04 by pganglof         ###   ########.fr       */
+/*   Created: 2019/10/28 18:36:06 by pganglof          #+#    #+#             */
+/*   Updated: 2019/10/28 18:39:35 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <string.h>
 
-char	*ft_strndup(const char *s, size_t n)
+static char	*ft_uitoa_bis(int count, int div, long nb)
 {
-	char	*s2;
-	size_t	i;
+	char	*s;
+	long	res;
+	int		i;
 
+	res = 0;
 	i = 0;
-	if (!(s2 = (char*)malloc(sizeof(char) * (n + 1))))
+	if (!(s = malloc(sizeof(char) * (count + 2))))
 		return (NULL);
-	while (s[i] && i < n)
+	while (div > 0)
 	{
-		s2[i] = s[i];
-		i++;
+		res = (nb / div) % 10;
+		s[i++] = res + 48;
+		div = div / 10;
 	}
-	s2[i] = '\0';
-	return (s2);
+	s[i] = '\0';
+	return (s);
+}
+
+char		*ft_uitoa(unsigned int n)
+{
+	int				div;
+	int				count;
+
+	div = 1;
+	count = 0;
+	while (n / div >= 10)
+	{
+		div = div * 10;
+		count++;
+	}
+	return (ft_uitoa_bis(count, div, n));
 }
